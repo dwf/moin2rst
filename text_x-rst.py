@@ -7,8 +7,8 @@
 
 import re
 
-from MoinMoin.parser.wiki import Parser
-from MoinMoin.formatter.base import FormatterBase
+from MoinMoin.parser.text_moin_wiki import Parser
+from MoinMoin.formatter import FormatterBase
 from MoinMoin import wikiutil
 
 # TODO Test with others than the standard MoinMoin "wiki" parser; in particular
@@ -53,9 +53,10 @@ class LinkStyle(Style):
         self._url = url
         self._formatter = formatter
 
-    _reUrlPrefix = re.compile("^(%s):" % ( Parser.url_pattern, ))
-    _reAttachmentPrefix = re.compile("^(%s):"
-                                     % ( "|".join(Parser.attachment_schemas), ))
+    _reUrlPrefix = re.compile("^(%s):" % ( Parser.url_rule, ))
+    #_reAttachmentPrefix = re.compile("") #FIXME
+  # ^(%s):"
+   #                                  % ( "|".join(Parser.attach_rule), ))
     _reWord = re.compile("^[-\w]+$")
 
     def getMarkup(self, description):
@@ -65,8 +66,8 @@ class LinkStyle(Style):
             if description.startswith(u"#"):
                 description = description[1:]
         if description == url:
-            if (self._reUrlPrefix.search(description)
-                and not self._reAttachmentPrefix.search(description)):
+            if self._reUrlPrefix.search(description):
+                #and not self._reAttachmentPrefix.search(description)):
                 # Plain URL
                 return u"%s" % ( description, )
         else:

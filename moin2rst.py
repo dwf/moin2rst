@@ -11,7 +11,7 @@ import os
 
 from optparse import OptionParser, OptionGroup
 
-from MoinMoin.request import RequestCLI
+from MoinMoin.request.request_cli import Request as RequestCLI
 from MoinMoin.Page import Page
 from MoinMoin import wikiutil
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     if not page.exists():
         raise RuntimeError("No page named %r" % ( pageName, ))
 
-    page.send_page(request)
+    page.send_page()
 
 # TODO Extension for reStructuredText parser in MoinMoin:
 #
