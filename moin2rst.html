@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>moin2rst -- convert a MoinMoin Wiki page to reStructuredText syntax</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<ul>
+
+		<li><a href="#action_renderasrestructuredtext">Action RenderAsRestructuredtext</a></li>
+		<li><a href="#command_line_interface">Command line interface</a></li>
+	</ul>
+
+	<li><a href="#options">OPTIONS</a></li>
+	<ul>
+
+		<li><a href="#general_options">General options</a></li>
+		<li><a href="#arguments">Arguments</a></li>
+	</ul>
+
+	<li><a href="#installation">INSTALLATION</a></li>
+	<ul>
+
+		<li><a href="#formatter_plugin">Formatter plugin</a></li>
+		<li><a href="#action_plugin">Action plugin</a></li>
+		<li><a href="#command_line_interface">Command line interface</a></li>
+	</ul>
+
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#license">LICENSE</a></li>
+	<li><a href="#availabilty">AVAILABILTY</a></li>
+	<li><a href="#bugs">BUGS</a></li>
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>moin2rst -- convert a MoinMoin Wiki page to reStructuredText syntax</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>Use MoinMoin action <strong>render as restructuredtext</strong></p>
+<p><strong>moin2rst.py</strong> [&lt;option&gt;]... <em>page</em></p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p><strong>moin2rst</strong> contains a MoinMoin formatter plugin which formats a
+MoinMoin Wiki page as reStructuredText.</p>
+<p>It is accompanied by a MoinMoin action plugin to use it inside a
+MoinMoin Wiki and by a script to be used from the command line.</p>
+<p>
+</p>
+<h2><a name="action_renderasrestructuredtext">Action RenderAsRestructuredtext</a></h2>
+<p>If the action plugin is installed each page should come with an
+additional action <strong>render as restructuredtext</strong> in the list of
+possible actions. Using this action renders the page as <code>text/x-rst</code>
+and returns it to the browser where it can be saved for further use.</p>
+<p>See <a href="#installation">INSTALLATION</a> for instructions for installing the action
+plugin.</p>
+<p>
+</p>
+<h2><a name="command_line_interface">Command line interface</a></h2>
+<p>The command line interface is implemented by <em>moin2rst.py</em> and can be
+used together with an existing Wiki installation.</p>
+<p>See <a href="#options">OPTIONS</a> for the options of the script.</p>
+<p>
+</p>
+<hr />
+<h1><a name="options">OPTIONS</a></h1>
+<p>
+</p>
+<h2><a name="general_options">General options</a></h2>
+<dl>
+<dt><strong><a name="item__2dd_directory"><strong>-d</strong> <em>directory</em></a></strong>
+
+<dt><strong><a name="item__2d_2ddirectory_3ddirectory"><strong>--directory</strong>=<em>directory</em></a></strong>
+
+<dd>
+<p>Directory where the configuration of the wiki lives.</p>
+</dd>
+<dd>
+<p>Defaults to <em>.</em>.</p>
+</dd>
+</li>
+<dt><strong><a name="item__2dr_revision"><strong>-r</strong> <em>revision</em></a></strong>
+
+<dt><strong><a name="item__2d_2drevision_3drevision"><strong>--revision</strong>=<em>revision</em></a></strong>
+
+<dd>
+<p>Revision of the page to fetch (1-based).</p>
+</dd>
+<dd>
+<p>Defaults to current revision.</p>
+</dd>
+</li>
+<dt><strong><a name="item__2du_url_2dtemplate"><strong>-u</strong> <em>url-template</em></a></strong>
+
+<dt><strong><a name="item__2d_2durl_2dtemplate_3durl_2dtemplate"><strong>--url-template</strong>=<em>url-template</em></a></strong>
+
+<dd>
+<p>If the wiki given by <strong>-d/--directory</strong> is part of a wiki farm then this gives a
+template to generate an URL from. The URL must be matched by one of the regular
+expressions found in <em>wikis</em> in the respective <em>farmconfig.py</em>.</p>
+</dd>
+<dd>
+<p><em>url-template</em> may contain at most one <code>%</code>. The <code>%</code> is replaced by <em>page</em>
+to form a valid URL. If <code>%</code> is omitted it is assumed at the end.</p>
+</dd>
+<dd>
+<p>Defaults to the empty string.</p>
+</dd>
+</li>
+</dl>
+<p>
+</p>
+<h2><a name="arguments">Arguments</a></h2>
+<dl>
+<dt><strong><a name="item_page"><em>page</em></a></strong>
+
+<dd>
+<p>The page named <em>page</em> is used as input. Output is to <em>stdout</em>.</p>
+</dd>
+</li>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="installation">INSTALLATION</a></h1>
+<p>The package contains two plugins: The formatter plugin which is needed
+always and the action plugin which is needed if the formatter should
+be used as an action.</p>
+<p>
+</p>
+<h2><a name="formatter_plugin">Formatter plugin</a></h2>
+<p>Simply put <code>RenderAsRestructuredtext.py</code> to MoinMoin's
+<code>plugin/formatter</code> directory.</p>
+<p>
+</p>
+<h2><a name="action_plugin">Action plugin</a></h2>
+<p>Simply put <code>RenderAsRestructuredtext.py</code> to MoinMoin's
+<code>plugin/action</code> directory.</p>
+<p>
+</p>
+<h2><a name="command_line_interface">Command line interface</a></h2>
+<p>The script does not need installation.</p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Stefan Merten &lt;<a href="mailto:smerten@oekonux.de">smerten@oekonux.de</a>&gt;</p>
+<p>
+</p>
+<hr />
+<h1><a name="license">LICENSE</a></h1>
+<p><strong>moin2rst</strong>is licensed under the terms of the GPL. See</p>
+<pre>
+        <a href="http://www.gnu.org/licenses/gpl.txt">http://www.gnu.org/licenses/gpl.txt</a></pre>
+<p>
+</p>
+<hr />
+<h1><a name="availabilty">AVAILABILTY</a></h1>
+<p>See</p>
+<pre>
+        <a href="http://www.merten-home.de/FreeSoftware/moin2rst/">http://www.merten-home.de/FreeSoftware/moin2rst/</a></pre>
+<p>
+</p>
+<hr />
+<h1><a name="bugs">BUGS</a></h1>
+<ul>
+<li>
+<p>Only cooperation with standard MoinMoin Wiki parser has been tested</p>
+</li>
+<li>
+<p>A couple of TODOs as listed in the source code of the formatter</p>
+</li>
+</ul>
+
+</body>
+
+</html>
