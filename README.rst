@@ -27,6 +27,7 @@ See INSTALLATION_ for instructions for installing the action plugin.
 Command line interface
 ----------------------
 
+
 The command line interface is implemented by ``moin2rst.py`` and can be used together with an existing Wiki installation.
 
 See OPTIONS_ for the options of the script.
