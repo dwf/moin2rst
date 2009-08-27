@@ -43,10 +43,10 @@ General options
 
 -d directory                  Directory where the configuration file of the 
                               wiki lives, defaults to '..'. 
---directory=directory
+--directory=directory         Alternate form of ``-d``.
 -r revision                   Revision of the page to fetch (1-based), defaults
                               to current revision
---revision=revision           
+--revision=revision           Alternate form of ``-r``.
 -u url-template               If the wiki given by ``-d``/``--directory`` is 
                               part of a wiki farm then this gives a template 
                               to generate an URL from. The URL must be matched 
@@ -55,6 +55,7 @@ General options
 --url-template=url-template   May contain at most one %. The % is replaced by 
                               page to form a valid URL. If % is omitted it is
                               assumed at the end. Defaults to the empty string.
+
 
 Arguments
 ---------
