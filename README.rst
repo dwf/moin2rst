@@ -1,16 +1,16 @@
-Name
+NAME
 ====
 
 **moin2rst** -- convert a MoinMoin Wiki page to reStructuredText syntax
 
-Synopsis
+SYNOPSIS
 ========
 
 Use MoinMoin action RenderAsRestructuredtext
 
    ``moin2rst.py [<option>]... page``
 
-Description
+DESCRIPTION
 ===========
 
 **moin2rst** contains a MoinMoin formatter plugin which formats a MoinMoin Wiki page as reStructuredText.
@@ -31,7 +31,7 @@ The command line interface is implemented by ``moin2rst.py`` and can be used tog
 
 See OPTIONS_ for the options of the script.
 
-Options
+OPTIONS
 =======
 
 General options
@@ -74,7 +74,7 @@ Arguments
   
   The page named page is used as input. Output is to stdout.
 
-Installation
+INSTALLATION
 ============
 
 The package contains two plugins: The formatter plugin which is needed always and the action plugin which is needed if the formatter should be used as an action.
@@ -94,14 +94,14 @@ Command line interface
 
 The script does not need installation.
 
-Author
+AUTHOR
 ======
 
 Stefan Merten <smerten@oekonux.de> (original author)
 
 David Warde-Farley <dwf at cs dot toronto dot edu> (updated for Moin 1.8.4)
 
-License
+LICENSE
 =======
 
 **moin2rst** is licensed under the terms of the GPL. See http://www.gnu.org/licenses/gpl.txt
