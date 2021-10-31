@@ -1,3 +1,5 @@
+**This fork is unmaintained.** It will not receive any further updates. If you'd like to take up the task of updating and improving it further, feel free to fork it yourself and make and distribute any improvements you see fit subject to the terms of the original license.
+
 ====
 NAME
 ====
